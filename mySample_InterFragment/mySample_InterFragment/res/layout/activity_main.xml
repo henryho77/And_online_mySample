@@ -8,9 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mysample_interfragment.MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.mysample_interfragment.FragmentA"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.mysample_interfragment.FragmentB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fragment1"
+        android:layout_below="@+id/fragment1" />
 
 </RelativeLayout>
