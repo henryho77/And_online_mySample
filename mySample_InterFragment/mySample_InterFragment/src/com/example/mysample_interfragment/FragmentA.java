@@ -11,6 +11,7 @@ public class FragmentA extends Fragment implements View.OnClickListener{
 	
 	private Button button;
 	int counter = 0;
+	Communicator comm;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,12 +27,15 @@ public class FragmentA extends Fragment implements View.OnClickListener{
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
+		comm = (Communicator) getActivity();
 		button = (Button) getActivity().findViewById(R.id.button1);
+		button.setOnClickListener(this);
 	}
 	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		counter++;
+		comm.respond("The button was clicked "+counter+" times");
 	}
 }
