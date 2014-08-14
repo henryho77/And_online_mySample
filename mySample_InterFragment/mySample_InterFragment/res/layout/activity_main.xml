@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mysample_interfragment.MainActivity" >
+    tools:context="com.example.mysample_interfragment.MainActivity"
+    android:background="#00BBFF" >
 
     <fragment
         android:id="@+id/fragment1"
