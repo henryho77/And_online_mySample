@@ -27,4 +27,8 @@ public class FragmentB extends Fragment{
 		
 		textView = (TextView) getActivity().findViewById(R.id.textView1);
 	}
+	
+	public void changeText(String data){
+		textView.setText(data);
+	}
 }

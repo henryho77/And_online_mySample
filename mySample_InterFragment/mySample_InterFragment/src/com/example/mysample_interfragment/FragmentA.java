@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class FragmentA extends Fragment{
+public class FragmentA extends Fragment implements View.OnClickListener{
 	
 	private Button button;
+	int counter = 0;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,5 +27,11 @@ public class FragmentA extends Fragment{
 		super.onActivityCreated(savedInstanceState);
 		
 		button = (Button) getActivity().findViewById(R.id.button1);
+	}
+	
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		counter++;
 	}
 }
