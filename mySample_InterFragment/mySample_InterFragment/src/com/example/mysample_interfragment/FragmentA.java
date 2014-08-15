@@ -14,6 +14,21 @@ public class FragmentA extends Fragment implements View.OnClickListener{
 	Communicator comm;
 	
 	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		if(savedInstanceState == null)
+		{
+			counter = 0;
+		}
+		else
+		{
+			counter = savedInstanceState.getInt("counter", 0);
+		}
+	}
+	
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -30,6 +45,14 @@ public class FragmentA extends Fragment implements View.OnClickListener{
 		comm = (Communicator) getActivity();
 		button = (Button) getActivity().findViewById(R.id.button1);
 		button.setOnClickListener(this);
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		
+		outState.putInt("counter", counter);
 	}
 	
 	@Override
