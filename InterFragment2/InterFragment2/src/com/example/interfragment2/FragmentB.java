@@ -1,6 +1,7 @@
 package com.example.interfragment2;
 
 import android.app.Fragment;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,5 +27,12 @@ public class FragmentB extends Fragment{
 		super.onActivityCreated(savedInstanceState);
 		
 		textView1 = (TextView) getActivity().findViewById(R.id.textView1);
+	}
+	
+	public void changeData(int i){
+		
+		Resources res = getResources();
+		String[] descriptions = res.getStringArray(R.array.descriptions);
+		textView1.setText(descriptions[i]);
 	}
 }

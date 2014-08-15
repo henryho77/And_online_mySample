@@ -1,6 +1,7 @@
 package com.example.interfragment2;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,9 @@ public class MainActivity extends ActionBarActivity implements Communicator{
     @Override
     public void respond(int i) {
     	// TODO Auto-generated method stub
-    	
+    	FragmentManager fm = getFragmentManager();
+    	FragmentB f2 = (FragmentB) fm.findFragmentById(R.id.fragment2);
+    	f2.changeData(i);
     }
 
     @Override

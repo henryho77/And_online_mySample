@@ -13,6 +13,7 @@ import android.widget.ListView;
 public class FragmentA extends Fragment implements AdapterView.OnItemClickListener{
 	
 	private ListView listView1;
+	Communicator comm;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +29,8 @@ public class FragmentA extends Fragment implements AdapterView.OnItemClickListen
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
+		comm = (Communicator) getActivity();
+		
 		listView1 = (ListView) getActivity().findViewById(R.id.listView1);
 		ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.titles, android.R.layout.simple_list_item_1);
 		listView1.setAdapter(adapter);
@@ -38,6 +41,6 @@ public class FragmentA extends Fragment implements AdapterView.OnItemClickListen
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO Auto-generated method stub
-		
+		comm.respond(position);
 	}
 }
