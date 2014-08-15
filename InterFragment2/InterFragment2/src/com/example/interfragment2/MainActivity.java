@@ -6,7 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +14,11 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    public void respond(int i) {
+    	// TODO Auto-generated method stub
+    	
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

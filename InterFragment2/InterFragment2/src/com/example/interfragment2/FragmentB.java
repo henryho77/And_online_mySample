@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class FragmentB extends Fragment{
+	
+	private TextView textView1;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -15,5 +18,13 @@ public class FragmentB extends Fragment{
 		View rootView = inflater.inflate(R.layout.fragment_b, container, false);
 		
 		return rootView;
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		
+		textView1 = (TextView) getActivity().findViewById(R.id.textView1);
 	}
 }
