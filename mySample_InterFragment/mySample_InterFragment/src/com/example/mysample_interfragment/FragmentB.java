@@ -10,12 +10,24 @@ import android.widget.TextView;
 public class FragmentB extends Fragment{
 	
 	private TextView textView;
+	private String data;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		View rootView = inflater.inflate(R.layout.fragment_b, container, false);
+		
+		if(savedInstanceState == null)
+		{
+			
+		}
+		else
+		{
+			data = savedInstanceState.getString("text");
+			TextView mytextView = (TextView) rootView.findViewById(R.id.textView1);
+			mytextView.setText(data);
+		}
 		
 		return rootView;
 	}
@@ -28,7 +40,15 @@ public class FragmentB extends Fragment{
 		textView = (TextView) getActivity().findViewById(R.id.textView1);
 	}
 	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		outState.putString("text", data);
+	}
+	
 	public void changeText(String data){
+		this.data = data;
 		textView.setText(data);
 	}
 }
