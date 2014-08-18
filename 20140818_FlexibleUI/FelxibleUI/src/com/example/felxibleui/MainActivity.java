@@ -2,7 +2,9 @@ package com.example.felxibleui;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Choreographer.FrameCallback;
@@ -10,8 +12,8 @@ import android.view.Choreographer.FrameCallback;
 
 public class MainActivity extends ActionBarActivity implements FragmentA.Communicator{
 
-	FragmentA f1;
-	FragmentB f2;
+//	FragmentA f1;
+//	FragmentB f2;
 	FragmentManager fm;
 	
     @Override
@@ -20,7 +22,7 @@ public class MainActivity extends ActionBarActivity implements FragmentA.Communi
         setContentView(R.layout.activity_main);
         
         fm = getFragmentManager();
-        f1 = (FragmentA) fm.findFragmentById(R.id.fragment1);
+        FragmentA f1 = (FragmentA) fm.findFragmentById(R.id.fragment1);
         f1.setCommunicator(this);
     }
 
@@ -48,6 +50,19 @@ public class MainActivity extends ActionBarActivity implements FragmentA.Communi
 	@Override
 	public void respond(int index) {
 		// TODO Auto-generated method stub
-		
+        Log.d("debug", " Inside main activity ");
+        FragmentB f2= (FragmentB) fm.findFragmentById(R.id.fragment2);
+        if(f2!=null && f2.isVisible())
+        {
+            Log.d("debug", " f2 change data ");
+            f2.changeData(index);
+        }
+        else
+        {
+            Log.d("debug", " calling intent ");
+            Intent intent=new Intent(this, AnotherActivity.class);
+            intent.putExtra("index",index);
+            startActivity(intent);
+        }
 	}
 }

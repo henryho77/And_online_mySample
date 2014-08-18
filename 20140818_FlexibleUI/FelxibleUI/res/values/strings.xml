@@ -37,4 +37,5 @@
     	      ways, there are three fundamental use-cases:</item>
     </string-array>
     
+    <string name="title_activity_another">MainActivity</string>
 </resources>

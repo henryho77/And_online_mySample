@@ -1109,8 +1109,8 @@ containing a value of this type.
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
-        public static final int fragment1=0x7f05003c;
-        public static final int fragment2=0x7f05003d;
+        public static final int fragment1=0x7f05003d;
+        public static final int fragment2=0x7f05003c;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
@@ -1253,6 +1253,7 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
         public static final int hello_world=0x7f0a000e;
+        public static final int title_activity_another=0x7f0a0010;
     }
     public static final class style {
         /** 

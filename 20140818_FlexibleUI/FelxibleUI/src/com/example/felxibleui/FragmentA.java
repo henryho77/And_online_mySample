@@ -2,6 +2,7 @@ package com.example.felxibleui;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,8 @@ public class FragmentA extends Fragment implements AdapterView.OnItemClickListen
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 		// TODO Auto-generated method stub
-		
+        Log.d("debug",(comm==null)+"");
+        comm.respond(position);
 	}
 	
 	public interface Communicator{
