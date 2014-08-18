@@ -5,9 +5,10 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Choreographer.FrameCallback;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements FragmentA.Communicator{
 
 	FragmentA f1;
 	FragmentB f2;
@@ -20,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
         
         fm = getFragmentManager();
         f1 = (FragmentA) fm.findFragmentById(R.id.fragment1);
+        f1.setCommunicator(this);
     }
 
 
@@ -41,4 +43,11 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+	@Override
+	public void respond(int index) {
+		// TODO Auto-generated method stub
+		
+	}
 }
