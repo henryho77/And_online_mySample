@@ -12,6 +12,7 @@ import android.widget.ListView;
 public class FragmentA extends Fragment implements AdapterView.OnItemClickListener{
 	
 	private ListView listView1;
+	Communicator comm;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,10 +28,18 @@ public class FragmentA extends Fragment implements AdapterView.OnItemClickListen
 		return rootView;
 	}
 	
+	public void setCommunicator(Communicator comm){
+		this.comm = comm;
+	}
+	
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
+	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public interface Communicator{
+		
+		public void respond(int index);
 	}
 }

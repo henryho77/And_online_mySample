@@ -1,6 +1,7 @@
 package com.example.felxibleui;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,10 +9,17 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+	FragmentA f1;
+	FragmentB f2;
+	FragmentManager fm;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        fm = getFragmentManager();
+        f1 = (FragmentA) fm.findFragmentById(R.id.fragment1);
     }
 
 
