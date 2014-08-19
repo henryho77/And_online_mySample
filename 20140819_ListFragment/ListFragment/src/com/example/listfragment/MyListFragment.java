@@ -1,5 +1,7 @@
 package com.example.listfragment;
 
-public class MyListFragment {
+import android.app.ListFragment;
+
+public class MyListFragment extends ListFragment{
 
 }
