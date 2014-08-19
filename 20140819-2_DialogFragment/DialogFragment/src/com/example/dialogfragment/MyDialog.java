@@ -1,5 +1,6 @@
 package com.example.dialogfragment;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
@@ -13,6 +14,14 @@ import android.widget.Toast;
 public class MyDialog extends DialogFragment implements View.OnClickListener{
 	
 	private Button yes, no;
+	Communicator communicator;
+	
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		communicator = (Communicator) activity;
+	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,12 +44,17 @@ public class MyDialog extends DialogFragment implements View.OnClickListener{
 		if(v.getId() == R.id.yes)
 		{
 			dismiss();
-			Toast.makeText(getActivity(), "Yes button was clicked", Toast.LENGTH_LONG).show();
+			communicator.onDialogMessage("Yes button was clicked");
 		}
 		else
 		{
 			dismiss();
-			Toast.makeText(getActivity(), "No button was clicked", Toast.LENGTH_LONG).show();
+			communicator.onDialogMessage("No button was clicked");
 		}
+	}
+	
+	interface Communicator
+	{
+		public void onDialogMessage(String message);
 	}
 }

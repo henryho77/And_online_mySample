@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements MyDialog.Communicator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,4 +42,11 @@ public class MainActivity extends ActionBarActivity {
     	MyDialog myDialog = new MyDialog();
     	myDialog.show(manager, "MyDialog");
     }
+
+
+	@Override
+	public void onDialogMessage(String message) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+	}
 }
