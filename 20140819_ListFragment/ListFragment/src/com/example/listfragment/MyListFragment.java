@@ -25,9 +25,14 @@ public class MyListFragment extends ListFragment implements AdapterView.OnItemCl
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
-		ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.heroes, android.R.layout.simple_list_item_1);
+//		ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.heroes, android.R.layout.simple_list_item_1);
+//		setListAdapter(adapter);
+//		getListView().setOnItemClickListener(this);
+		
+		String[] hero = getResources().getStringArray(R.array.heroes);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, hero);
 		setListAdapter(adapter);
-		getListView().setOnItemClickListener(this);
+		getListView().setOnItemClickListener(this);		
 	}
 
 	@Override
