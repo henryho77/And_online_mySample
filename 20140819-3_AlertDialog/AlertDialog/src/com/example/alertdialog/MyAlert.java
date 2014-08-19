@@ -16,7 +16,14 @@ public class MyAlert extends DialogFragment{
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		
 		builder.setTitle("My Dialog");
-		builder.setMessage("Do you guys like this dialog?");
+		builder.setItems(R.array.days, new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getActivity(), "Item was selected " + which, Toast.LENGTH_SHORT).show();
+			}
+		});
 		
 		builder.setNegativeButton(android.R.string.cancel, new OnClickListener() {
 			
