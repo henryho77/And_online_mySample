@@ -41,7 +41,7 @@ class MyAdapter extends FragmentPagerAdapter
 	public Fragment getItem(int i) {
 		// TODO Auto-generated method stub
 		Fragment fragment = null;
-		Log.d("debug", "get Item is called " + i);
+//		Log.d("debug", "get Item is called " + i);
 		if(i == 0)
 		{
 			fragment = new FragmentA();
@@ -60,7 +60,7 @@ class MyAdapter extends FragmentPagerAdapter
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		Log.d("debug", "get Count is called");
+//		Log.d("debug", "get Count is called");
 		return 3;
 	}
 }
