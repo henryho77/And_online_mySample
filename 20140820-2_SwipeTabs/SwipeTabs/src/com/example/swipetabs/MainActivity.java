@@ -1,6 +1,7 @@
 package com.example.swipetabs;
 
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.ActionBar.TabListener;
@@ -11,6 +12,7 @@ import android.util.Log;
 
 public class MainActivity extends FragmentActivity implements TabListener{
 
+	ViewPager viewPager;
 	ActionBar actionBar;
 	
 	@Override
@@ -19,6 +21,7 @@ public class MainActivity extends FragmentActivity implements TabListener{
 		super.onCreate(arg0);
 		setContentView(R.layout.activity_main);
 		
+		viewPager = (ViewPager) findViewById(R.id.pager);
 		actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
