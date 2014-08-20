@@ -32,30 +32,32 @@ public class MainActivity extends FragmentActivity implements TabListener{
 			@Override
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
-				Log.d("debug", "onPageSelected at " + " position " + arg0);
+				
+				
+//				Log.d("debug", "onPageSelected at " + " position " + arg0);
 			}
 			
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-				Log.d("debug", "onPageScrolled at " + " position " + arg0 + " from " + arg1 + " with number of pixels= " + arg2);
+//				Log.d("debug", "onPageScrolled at " + " position " + arg0 + " from " + arg1 + " with number of pixels= " + arg2);
 			}
 			
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 				// TODO Auto-generated method stub
-				if(arg0 == ViewPager.SCROLL_STATE_IDLE)
-				{
-					Log.d("debug", "onPageScrollStateChanged Idle");
-				}
-				if(arg0 == ViewPager.SCROLL_STATE_DRAGGING)
-				{
-					Log.d("debug", "onPageScrollStateChanged Dragging");
-				}
-				if(arg0 == ViewPager.SCROLL_STATE_SETTLING)
-				{
-					Log.d("debug", "onPageScrollStateChanged Settling");
-				}
+//				if(arg0 == ViewPager.SCROLL_STATE_IDLE)
+//				{
+//					Log.d("debug", "onPageScrollStateChanged Idle");
+//				}
+//				if(arg0 == ViewPager.SCROLL_STATE_DRAGGING)
+//				{
+//					Log.d("debug", "onPageScrollStateChanged Dragging");
+//				}
+//				if(arg0 == ViewPager.SCROLL_STATE_SETTLING)
+//				{
+//					Log.d("debug", "onPageScrollStateChanged Settling");
+//				}
 			}
 		});
 		
@@ -84,6 +86,7 @@ public class MainActivity extends FragmentActivity implements TabListener{
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 //		Log.d("debug", "onTabSelected at " + " position " + tab.getPosition() + " name " + tab.getText());
+	
 	}
 
 	@Override
