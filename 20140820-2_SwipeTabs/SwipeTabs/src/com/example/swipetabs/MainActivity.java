@@ -27,6 +27,38 @@ public class MainActivity extends FragmentActivity implements TabListener{
 		
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+				Log.d("debug", "onPageSelected at " + " position " + arg0);
+			}
+			
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				Log.d("debug", "onPageScrolled at " + " position " + arg0 + " from " + arg1 + " with number of pixels= " + arg2);
+			}
+			
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				if(arg0 == ViewPager.SCROLL_STATE_IDLE)
+				{
+					Log.d("debug", "onPageScrollStateChanged Idle");
+				}
+				if(arg0 == ViewPager.SCROLL_STATE_DRAGGING)
+				{
+					Log.d("debug", "onPageScrollStateChanged Dragging");
+				}
+				if(arg0 == ViewPager.SCROLL_STATE_SETTLING)
+				{
+					Log.d("debug", "onPageScrollStateChanged Settling");
+				}
+			}
+		});
+		
 		
 		actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -51,19 +83,19 @@ public class MainActivity extends FragmentActivity implements TabListener{
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-		Log.d("debug", "onTabReselected at " + " position " + tab.getPosition() + " name " + tab.getText());
+//		Log.d("debug", "onTabSelected at " + " position " + tab.getPosition() + " name " + tab.getText());
 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-		Log.d("debug", "onTabReselected at " + " position " + tab.getPosition() + " name " + tab.getText());
+//		Log.d("debug", "onTabUnselected at " + " position " + tab.getPosition() + " name " + tab.getText());
 	}
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-		Log.d("debug", "onTabReselected at " + " position " + tab.getPosition() + " name " + tab.getText());
+//		Log.d("debug", "onTabReselected at " + " position " + tab.getPosition() + " name " + tab.getText());
 	}
 
 }
