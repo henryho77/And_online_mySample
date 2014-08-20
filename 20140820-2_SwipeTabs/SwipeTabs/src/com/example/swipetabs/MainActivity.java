@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity implements TabListener{
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
 				
-				
+				actionBar.setSelectedNavigationItem(arg0);
 //				Log.d("debug", "onPageSelected at " + " position " + arg0);
 			}
 			
@@ -86,7 +86,7 @@ public class MainActivity extends FragmentActivity implements TabListener{
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
 //		Log.d("debug", "onTabSelected at " + " position " + tab.getPosition() + " name " + tab.getText());
-	
+		viewPager.setCurrentItem(tab.getPosition());
 	}
 
 	@Override
