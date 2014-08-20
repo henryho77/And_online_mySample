@@ -64,4 +64,22 @@ class MyAdapter extends FragmentStatePagerAdapter
 //		Log.d("debug", "get Count is called");
 		return 3;
 	}
+	
+	@Override
+	public CharSequence getPageTitle(int position) {
+		// TODO Auto-generated method stub
+		if(position == 0)
+		{
+			return "Tab 1";
+		}
+		if(position == 1)
+		{
+			return "Tab 2";
+		}
+		if(position == 2)
+		{
+			return "Tab 3";
+		}
+		return null;
+	}
 }
