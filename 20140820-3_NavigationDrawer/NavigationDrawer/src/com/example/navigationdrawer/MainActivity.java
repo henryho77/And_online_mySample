@@ -2,6 +2,7 @@ package com.example.navigationdrawer;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,18 +19,37 @@ public class MainActivity extends Activity implements OnItemClickListener{
 	private DrawerLayout drawerLayout;
 	private ListView listView;
 	private String[] planets;
+	private ActionBarDrawerToggle drawerToggle;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);      
         
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         planets = getResources().getStringArray(R.array.planets);
         
         listView = (ListView) findViewById(R.id.drawerList);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planets));
         listView.setOnItemClickListener(this);
+        
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_drawer, 
+        										 R.string.drawer_open, R.string.drawer_close){
+        	@Override
+        	public void onDrawerClosed(View drawerView) {
+        		// TODO Auto-generated method stub
+        		super.onDrawerClosed(drawerView);
+        		Toast.makeText(MainActivity.this, " Drawer Closed ", Toast.LENGTH_LONG).show();
+        	}
+        	
+        	@Override
+			public void onDrawerOpened(View drawerView) {
+				// TODO Auto-generated method stub
+				super.onDrawerOpened(drawerView);
+				Toast.makeText(MainActivity.this, " Drawer Opened ", Toast.LENGTH_LONG).show();
+			}
+        };
+        drawerLayout.setDrawerListener(drawerToggle);
     }
 
 
