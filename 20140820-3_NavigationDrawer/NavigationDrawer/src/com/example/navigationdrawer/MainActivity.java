@@ -57,6 +57,17 @@ public class MainActivity extends Activity implements OnItemClickListener{
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO Auto-generated method stub
-		Toast.makeText(this, planets[position] + "was selected", Toast.LENGTH_LONG).show();
+		Toast.makeText(this, planets[position] + " was selected", Toast.LENGTH_LONG).show();
+		selectItem(position);
+	}
+
+	public void selectItem(int position) {
+		// TODO Auto-generated method stub
+		listView.setItemChecked(position, true);
+		setTitle(planets[position]);
+	}
+	
+	public void setTitle(String title){
+		getActionBar().setTitle(title);
 	}
 }
