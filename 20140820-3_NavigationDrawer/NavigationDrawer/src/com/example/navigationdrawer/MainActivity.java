@@ -1,6 +1,7 @@
 package com.example.navigationdrawer;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -50,8 +51,18 @@ public class MainActivity extends Activity implements OnItemClickListener{
 			}
         };
         drawerLayout.setDrawerListener(drawerToggle);
+        
+        //ActionBar set home button
+        getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
+    
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+    	// TODO Auto-generated method stub
+    	super.onPostCreate(savedInstanceState);
+    	drawerToggle.syncState();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,13 +76,16 @@ public class MainActivity extends Activity implements OnItemClickListener{
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        if(drawerToggle.onOptionsItemSelected(item)){
+        	return true;
+        }
+    	
+    	int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
