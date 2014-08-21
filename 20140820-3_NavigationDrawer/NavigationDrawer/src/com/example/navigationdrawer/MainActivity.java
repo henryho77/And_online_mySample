@@ -86,6 +86,13 @@ public class MainActivity extends Activity implements OnItemClickListener{
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+    	// TODO Auto-generated method stub
+    	super.onConfigurationChanged(newConfig);
+    	drawerToggle.onConfigurationChanged(newConfig);
+    }
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
