@@ -17,4 +17,12 @@
         <item>Pluto</item>
     </string-array>
     
+    <string-array name="stars">
+        <item>Sun</item>
+        <item>Sirius A</item>
+        <item>Sirius B</item>
+        <item>Alpha Centauri</item>
+        <item>Proxima Centauri</item>
+    </string-array>
+    
 </resources>

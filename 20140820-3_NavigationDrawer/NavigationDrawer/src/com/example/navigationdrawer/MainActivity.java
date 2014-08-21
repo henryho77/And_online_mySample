@@ -2,16 +2,24 @@ package com.example.navigationdrawer;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 
 public class MainActivity extends Activity {
 
+	private DrawerLayout drawerLayout;
+	private ListView listView;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        listView = (ListView) findViewById(R.id.drawerList);
     }
 
 

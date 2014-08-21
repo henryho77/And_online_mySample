@@ -10,6 +10,7 @@ package com.example.navigationdrawer;
 public final class R {
     public static final class array {
         public static final int planets=0x7f060000;
+        public static final int stars=0x7f060001;
     }
     public static final class attr {
     }
@@ -28,7 +29,11 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090000;
+        public static final int action_settings=0x7f090004;
+        public static final int content_frame=0x7f090001;
+        public static final int drawerLayout=0x7f090000;
+        public static final int drawerList=0x7f090002;
+        public static final int drawerList2=0x7f090003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
