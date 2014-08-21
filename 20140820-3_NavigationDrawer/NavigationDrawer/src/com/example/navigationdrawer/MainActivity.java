@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
@@ -12,6 +13,7 @@ public class MainActivity extends Activity {
 
 	private DrawerLayout drawerLayout;
 	private ListView listView;
+	private String[] planets;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        planets = getResources().getStringArray(R.array.planets);
+        
         listView = (ListView) findViewById(R.id.drawerList);
+        listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planets));
     }
 
 
