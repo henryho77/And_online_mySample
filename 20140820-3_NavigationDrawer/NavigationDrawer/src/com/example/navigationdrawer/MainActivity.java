@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemClickListener{
 
 	private DrawerLayout drawerLayout;
 	private ListView listView;
@@ -25,6 +29,7 @@ public class MainActivity extends Activity {
         
         listView = (ListView) findViewById(R.id.drawerList);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planets));
+        listView.setOnItemClickListener(this);
     }
 
 
@@ -46,4 +51,12 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, planets[position] + "was selected", Toast.LENGTH_LONG).show();
+	}
 }
