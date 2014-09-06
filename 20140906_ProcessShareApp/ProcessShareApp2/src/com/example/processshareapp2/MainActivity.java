@@ -1,6 +1,10 @@
 package com.example.processshareapp2;
 
 import android.app.Activity;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +18,8 @@ public class MainActivity extends Activity {
 	private EditText edt_messageFromApp1;
 	private TextView txt_status;
 	
+	String packageName = "com.example.processshareapp1";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +30,17 @@ public class MainActivity extends Activity {
     }
 
     public void loadFile(View view){
-    	
+    	PackageManager packageManager = getPackageManager();
+    	try {
+    		ApplicationInfo applicationInfo = packageManager
+    				.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
+    		txt_status.setText(applicationInfo.dataDir);
+		
+    	} catch (NameNotFoundException e) {
+			// TODO Auto-generated catch block
+    		txt_status.setTextColor(Color.RED);
+    		txt_status.setText(e + "");
+		}
     }
     
     public void readFile(String fullPath){
