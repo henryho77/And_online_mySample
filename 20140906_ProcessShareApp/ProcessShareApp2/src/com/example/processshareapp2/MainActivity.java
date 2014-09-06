@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
     		ApplicationInfo applicationInfo = packageManager
     				.getApplicationInfo(packageName, PackageManager.GET_META_DATA);
 //    		txt_status.setText(applicationInfo.dataDir);
-    		String fullPath = applicationInfo.dataDir + "/files/mytest.text";
+    		String fullPath = applicationInfo.dataDir + "/files/mytest.txt";
     		readFile(fullPath);
 		
     	} catch (NameNotFoundException e) {
