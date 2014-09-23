@@ -6,12 +6,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends Activity {
 
 	Thread thread;
 	Handler handler;
+	ProgressBar progressBar;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class MainActivity extends Activity {
         /* here is run in main thread */
         setContentView(R.layout.activity_main);
         
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         thread = new Thread(new MyThread());
         thread.start();
         
@@ -26,8 +29,8 @@ public class MainActivity extends Activity {
         handler = new Handler(){
         	@Override
         	public void handleMessage(Message msg) {
-        		// TODO Auto-generated method stub
-        		super.handleMessage(msg);
+        		//super.handleMessage(msg);
+        		progressBar.setProgress(msg.arg1);
         	}
         };
     }
@@ -37,10 +40,18 @@ public class MainActivity extends Activity {
 		@Override
 		public void run() {
 			/* here is run in second thread */
-
-			Message message = Message.obtain();
-			for(int i = 0; i < 10000;i++){
+			for(int i=0; i<100; i++){
+				
+				Message message = Message.obtain();
+				message.arg1 = i;//1,2,...,100
 				handler.sendMessage(message);
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}	
     }
