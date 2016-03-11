@@ -49,7 +49,7 @@ public class DownloadContent {
 			}
 		};
 		
-		class MyThread implements Runnable {
+		class MyThread extends Thread {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
@@ -93,7 +93,7 @@ public class DownloadContent {
 			}
 		}
 		
-		new Thread(new MyThread()).start();//¶}±ÒWorkerThread
+		new MyThread().start();//¶}±ÒWorkerThread
 		dialog.show();//¸õ¥XProgressDialog
 	}
 	
