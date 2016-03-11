@@ -213,3 +213,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+DownloadImage/Downloadimage/gen/com/example/downloadimage/R.java
+DownloadImage/Downloadimage/gen/android/support/v7/appcompat/R.java
