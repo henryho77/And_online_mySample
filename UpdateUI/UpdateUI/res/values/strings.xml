@@ -5,4 +5,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 	
+    <string name="value">數值</string>
+    <string name="update_progress_value">更新進度條</string>
 </resources>
