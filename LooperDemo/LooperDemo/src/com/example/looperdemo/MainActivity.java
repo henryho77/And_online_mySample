@@ -60,7 +60,16 @@ public class MainActivity extends ActionBarActivity {
     		/* 注意這個handler是在WorkerThread生成的,
     		 * 所以當這個handler現在在MainThread中調用sendMessage()方法時,
     		 * 會將該消息對象發送到WorkerThread中的Looper所掌管的消息隊列裡面 */
-    		handler.sendMessage(msg);
+    		//handler.sendMessage(msg);
+    		
+    		/* 上面的handler.sendMessage(msg)可以改寫成msg.sendToTarget()
+    		 * 兩種方法是一樣的動作,去看原始碼你就會發現msg.sendToTarget()
+    		 * public void sendToTarget() {
+        	 *	  target.sendMessage(this);
+    		 * }
+    		 * 其中的target指的就是這個Message所屬的handler對象
+    		 * this就是Message */
+    		msg.sendToTarget();
     	}
     }
     
