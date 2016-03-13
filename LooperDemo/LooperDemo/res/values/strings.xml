@@ -4,5 +4,7 @@
     <string name="app_name">LooperDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="send_msg_to_worker_thread">發送消息至WorkerThread</string>
 
 </resources>
