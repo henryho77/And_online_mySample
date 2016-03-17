@@ -7,4 +7,7 @@
 	
     <string name="value">數值</string>
     <string name="update_progress_value">更新進度條</string>
+    
+    <string name="go_to_activity_1">Go To Activity_1</string>
+    <string name="now_in_activity_1">Now in Activity_1</string>
 </resources>

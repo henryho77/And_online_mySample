@@ -1,6 +1,7 @@
 package com.example.updateui;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
 	private TextView textView1;
 	private ProgressBar progressBar1;
 	private Button button1;
+	private Button btn_goToActivity_1;
 	
 	private Handler handler;
 	
@@ -32,23 +34,40 @@ public class MainActivity extends ActionBarActivity {
         
         textView1 = (TextView) findViewById(R.id.textView1);
         button1 = (Button) findViewById(R.id.button1);
+        btn_goToActivity_1 = (Button) findViewById(R.id.btn_goToActivity_1);
         progressBar1 = (ProgressBar) findViewById(R.id.progressBar1);
         
         handler = new MyHandler();//MainThread中宣告的handler
         
         button1.setOnClickListener(new ButtonListener());
+        btn_goToActivity_1.setOnClickListener(new ButtonListener());
     }
 
     class ButtonListener implements OnClickListener {
 
 		@Override
 		public void onClick(View v) {
-			// 當用戶點擊按鈕時,我們開啟一個WorkerThread在背後執行計數的動作
-			Thread t = new MyThread();
-			t.start();
+			switch (v.getId()) {
+			case R.id.button1:
+				// 當用戶點擊按鈕時,我們開啟一個WorkerThread在背後執行計數的動作
+				Thread t = new MyThread();
+				t.start();
+				
+				button1.setClickable(false);
+				button1.setTextColor(Color.GRAY);
+				
+				btn_goToActivity_1.setClickable(false);
+				btn_goToActivity_1.setTextColor(Color.GRAY);
+				
+				break;
+			case R.id.btn_goToActivity_1:
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, Activity_1.class);
+				startActivity(intent);
+				//MainActivity.this.finish();
+				break;
+			}
 			
-			button1.setClickable(false);
-			button1.setTextColor(Color.GRAY);
 		}
     	
     }
@@ -72,6 +91,9 @@ public class MainActivity extends ActionBarActivity {
     				case COUNT_OK:
     					button1.setClickable(true);
     					button1.setTextColor(Color.BLACK);
+    					
+    					btn_goToActivity_1.setClickable(true);
+    					btn_goToActivity_1.setTextColor(Color.BLACK);
     					break;
     				default:
     					break;
